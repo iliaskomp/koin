@@ -198,6 +198,9 @@ Then:
 - `val service : Service by inject()` will trigger the `ServiceImpl1` definition
 - `val service : Service by inject(named("test"))` will trigger the `ServiceImpl2` definition
 
+An enum qualifier can also be used instead of a string qualifier.
+
+Be careful when using an enum qualifier as this might have unidented effects due to locale issues. Internally the enum is converted to a lowercase string using the default JVM locale. This can be especially problematic for android devices where the enum-to-string conversion is based on the user's device locale. (see [https://github.com/InsertKoinIO/koin/issues/1172](https://github.com/InsertKoinIO/koin/issues/1172))
 
 ## Declaring injection parameters
 
